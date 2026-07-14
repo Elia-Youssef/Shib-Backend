@@ -1,0 +1,6 @@
+@ShibAPI_HostAddress = http://localhost:5150
+
+GET {{ShibAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
