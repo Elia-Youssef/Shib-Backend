@@ -19,6 +19,9 @@ updates:
       time: "06:30"
       timezone: Etc/UTC
     open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
     groups:
       nuget:
         patterns: ["*"]
