@@ -89,6 +89,17 @@ dotnet run
 
 Swagger UI is enabled by the current application pipeline and is available from the service's `/swagger` route.
 
+## Repository checks
+
+Validate tracked configuration and audit the supported .NET 8 dependency graph with:
+
+```bash
+python scripts/check_repository.py
+dotnet restore --nologo -p:NuGetAudit=true -p:NuGetAuditMode=all -p:NuGetAuditLevel=high "-warnaserror:NU1903;NU1904"
+```
+
+Pull requests also run secret scanning, dependency review, and no-build C# CodeQL analysis in GitHub Actions. A full application build is not part of the public CI baseline because the showcase snapshot omits several private launcher-domain source types.
+
 ## Ecosystem context
 
 This API supports the [Shib: The Metaverse](https://github.com/Elia-Youssef/ShibTheMetaverse) Unreal client, the [desktop launcher](https://github.com/Elia-Youssef/ShibPortal-Desktop), the [web identity and streaming portal](https://github.com/Elia-Youssef/ShibPortal-Frontend), and [LapDogs](https://github.com/Elia-Youssef/LapDogs). The wider product is presented in the [Rebel Art Studios metaverse case study](https://rebelartstudios.org/project/shib-the-metaverse).
